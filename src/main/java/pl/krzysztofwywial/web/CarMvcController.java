@@ -26,7 +26,7 @@ public class CarMvcController {
     public String getAllCars(Model model) {
         List<CarEntity> list = service.getAllCars();
         model.addAttribute("cars", list);
-        return "car-list";
+        return "cars-list";
     }
 
     @RequestMapping("/edit-car")
