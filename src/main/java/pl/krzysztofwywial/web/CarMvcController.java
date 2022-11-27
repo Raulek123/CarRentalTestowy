@@ -1,6 +1,5 @@
 package pl.krzysztofwywial.web;
 
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +12,7 @@ import pl.krzysztofwywial.exception.RecordNotFoundException;
 import pl.krzysztofwywial.model.CarEntity;
 import pl.krzysztofwywial.service.CarService;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 

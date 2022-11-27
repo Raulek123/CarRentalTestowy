@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS CARS;
+
+CREATE TABLE CARS (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    brand VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    year_of_production INT NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    image VARCHAR(255),
+    available BOOL DEFAULT TRUE
+);

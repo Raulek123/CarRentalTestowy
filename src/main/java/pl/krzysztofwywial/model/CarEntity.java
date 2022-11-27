@@ -1,8 +1,11 @@
 package pl.krzysztofwywial.model;
 
-import jakarta.persistence.*;
+
 import pl.krzysztofwywial.enums.CarType;
-    @Entity
+
+import javax.persistence.*;
+
+@Entity
     @Table(name = "CARS")
     public class CarEntity implements Comparable<CarEntity> {
         @Id

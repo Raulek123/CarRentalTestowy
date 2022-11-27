@@ -72,6 +72,7 @@ public class CarService {
 
     public void deleteCarById(Long id) throws RecordNotFoundException {
         Optional<CarEntity> car = repository.findById(id);
+
         if (car.isPresent()) {
             repository.deleteById(id);
         } else {
