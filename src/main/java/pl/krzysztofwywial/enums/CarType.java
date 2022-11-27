@@ -1,2 +1,9 @@
-package pl.krzysztofwywial.enums;public class CarType {
+package pl.krzysztofwywial.enums;
+public enum CarType {
+    Hatchback,
+    Kombi,
+    Coupe,
+    Sedan,
+    SUV,
+    VAN
 }
