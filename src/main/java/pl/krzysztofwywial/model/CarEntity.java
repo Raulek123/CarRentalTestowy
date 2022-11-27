@@ -19,7 +19,7 @@ import javax.persistence.*;
         private String model;
 
         @Column(name = "year_of_production")
-        private int yearOfProduction;
+        private int year_of_production;
 
         @Column(name = "type")
         private CarType type;
@@ -54,12 +54,12 @@ import javax.persistence.*;
             this.model = model;
         }
 
-        public int getYearOfProduction() {
-            return yearOfProduction;
+        public int getYear_of_production() {
+            return year_of_production;
         }
 
-        public void setYearOfProduction(int yearOfProduction) {
-            this.yearOfProduction = yearOfProduction;
+        public void setYear_of_production(int yearOfProduction) {
+            this.year_of_production = yearOfProduction;
         }
 
         public CarType getType() {
@@ -81,7 +81,7 @@ import javax.persistence.*;
         public String getImagePath() {
             if (image == null || id == null) {
                 return null;
-            } else
+            }
                 return "/images/" + id + "/" + image;
         }
 
@@ -99,7 +99,7 @@ import javax.persistence.*;
                     "id=" + id +
                     ", brand='" + brand + '\'' +
                     ", model='" + model + '\'' +
-                    ", yearOfProduction=" + yearOfProduction +
+                    ", yearOfProduction=" + year_of_production +
                     ", type=" + type +
                     ", image='" + image + '\'' +
                     ", available=" + available +

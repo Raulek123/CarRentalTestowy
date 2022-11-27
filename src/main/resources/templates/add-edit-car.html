@@ -37,7 +37,7 @@
                         <div class="form-group col-md-8">
                             <label class="col-form-label">Rodzaj nadwozia</label>
                             <select name="type" id="type" class="form-control">
-                                <option th:each="type : ${T(com.carrental.enums.CarType).values()}"
+                                <option th:each="type : ${T(pl.krzysztofwywial.enums.CarType).values()}"
                                         th:value="${type}" th:text="${type}">
                                 </option>
                             </select>

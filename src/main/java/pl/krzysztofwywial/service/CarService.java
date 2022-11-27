@@ -57,7 +57,7 @@ public class CarService {
                 CarEntity newEntity = car.get();
                 newEntity.setBrand(entity.getBrand());
                 newEntity.setModel(entity.getModel());
-                newEntity.setYearOfProduction(entity.getYearOfProduction());
+                newEntity.setYear_of_production(entity.getYear_of_production());
                 newEntity.setType(entity.getType());
                 newEntity.setAvailable(entity.isAvailable());
 
