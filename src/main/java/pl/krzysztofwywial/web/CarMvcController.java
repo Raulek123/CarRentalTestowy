@@ -19,8 +19,10 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/")
 public class CarMvcController {
+
     @Autowired
     CarService service;
+
 
     @RequestMapping
     public String getAllCars(Model model) {

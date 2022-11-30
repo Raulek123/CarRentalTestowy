@@ -1,6 +1,7 @@
 package pl.krzysztofwywial.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +10,7 @@ import pl.krzysztofwywial.exception.RecordNotFoundException;
 import pl.krzysztofwywial.model.CarEntity;
 import pl.krzysztofwywial.repository.CarRepository;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -22,7 +24,8 @@ import java.util.Optional;
 public class CarService {
 
     @Autowired
-    CarRepository repository;
+    private CarRepository repository;
+
 
     public List<CarEntity> getAllCars() {
         List<CarEntity> result = (List<CarEntity>) repository.findAll();
