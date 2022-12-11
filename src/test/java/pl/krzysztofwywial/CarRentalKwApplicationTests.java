@@ -27,7 +27,7 @@ class CarRentalKwApplicationTests {
 
     @Test
     void carServiceGetCarByIdAssertThrowsRecordNotFoundException() {
-//        CarService service = new CarService();
+
         Exception exception = assertThrows(RecordNotFoundException.class, () -> {
             service.getCarById(1L);
         });
@@ -40,7 +40,7 @@ class CarRentalKwApplicationTests {
 
     @Test
     public void carServiceDeleteCarByIdAssertThrowsRecordNotFoundException() {
-//        CarService service = new CarService();
+
         Exception exception = assertThrows(RecordNotFoundException.class, () -> {
             service.deleteCarById(1L);
         });
