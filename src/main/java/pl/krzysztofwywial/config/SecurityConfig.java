@@ -13,6 +13,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(requests -> requests
                 .antMatchers("/").permitAll()
+                .antMatchers("/h2").permitAll()
                 .antMatchers("/images/**").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(form -> form
@@ -25,6 +26,7 @@ public class SecurityConfig {
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/farewell").permitAll());
         http.csrf().disable();
+        http.headers().frameOptions().disable();
         return http.build();
     }
 }
