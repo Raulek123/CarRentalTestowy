@@ -19,7 +19,7 @@ import javax.persistence.*;
         private String model;
 
         @Column(name = "year_of_production")
-        private int year_of_production;
+        private int yearOfProduction;
 
         @Column(name = "type")
         private CarType type;
@@ -54,12 +54,12 @@ import javax.persistence.*;
             this.model = model;
         }
 
-        public int getYear_of_production() {
-            return year_of_production;
+        public int getYearOfProduction() {
+            return yearOfProduction;
         }
 
-        public void setYear_of_production(int yearOfProduction) {
-            this.year_of_production = yearOfProduction;
+        public void setYearOfProduction(int yearOfProduction) {
+            this.yearOfProduction = yearOfProduction;
         }
 
         public CarType getType() {
@@ -99,7 +99,7 @@ import javax.persistence.*;
                     "id=" + id +
                     ", brand='" + brand + '\'' +
                     ", model='" + model + '\'' +
-                    ", yearOfProduction=" + year_of_production +
+                    ", yearOfProduction=" + yearOfProduction +
                     ", type=" + type +
                     ", image='" + image + '\'' +
                     ", available=" + available +
