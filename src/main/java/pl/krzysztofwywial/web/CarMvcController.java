@@ -50,7 +50,7 @@ public class CarMvcController {
     }
 
     @RequestMapping(path = "/delete/{id}")
-    public String deleteCarById(Model model, @PathParam("id") Long id)
+    public String deleteCarById(Model model, @PathVariable("id") Long id)
             throws RecordNotFoundException {
         service.deleteCarById(id);
         return "redirect:/";

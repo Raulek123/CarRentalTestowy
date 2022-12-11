@@ -95,7 +95,7 @@ public class CarService {
         Path uploadPath = Paths.get(uploadDiectory);
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
-        } else {
+        }
             try (InputStream inputStream = multipartFile.getInputStream()) {
                 Path filePath = uploadPath.resolve(fileName);
                 Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
@@ -104,4 +104,4 @@ public class CarService {
             }
         }
     }
-}
+
