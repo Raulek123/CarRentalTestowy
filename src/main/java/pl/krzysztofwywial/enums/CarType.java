@@ -1,4 +1,10 @@
 package pl.krzysztofwywial.enums;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public enum CarType {
     HATCHBACK ("Hatchback"),
     KOMBI ("Kombi"),
@@ -8,14 +14,5 @@ public enum CarType {
     VAN ("VAN");
 
     private  final String description;
-
-    CarType(String description) {
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
 
 }

@@ -1,10 +1,16 @@
 package pl.krzysztofwywial.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import pl.krzysztofwywial.enums.CarType;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@ToString
     @Table(name = "CARS")
     public class CarEntity implements Comparable<CarEntity> {
         @Id
@@ -29,80 +35,12 @@ import javax.persistence.*;
         @Column(name = "available")
         private boolean available;
 
-        public Long getId() {
-            return id;
-        }
-
-        public void setId(Long id) {
-            this.id = id;
-        }
-
-        public String getBrand() {
-            return brand;
-        }
-
-        public void setBrand(String brand) {
-            this.brand = brand;
-        }
-
-        public String getModel() {
-            return model;
-        }
-
-        public void setModel(String model) {
-            this.model = model;
-        }
-
-        public int getYearOfProduction() {
-            return yearOfProduction;
-        }
-
-        public void setYearOfProduction(int yearOfProduction) {
-            this.yearOfProduction = yearOfProduction;
-        }
-
-        public CarType getType() {
-            return type;
-        }
-
-        public void setType(CarType type) {
-            this.type = type;
-        }
-
-        public String getImage() {
-            return image;
-        }
-
-        public void setImage(String image) {
-            this.image = image;
-        }
 
         public String getImagePath() {
             if (image == null || id == null) {
                 return null;
             }
                 return "/images/" + id + "/" + image;
-        }
-
-        public boolean isAvailable() {
-            return available;
-        }
-
-        public void setAvailable(boolean available) {
-            this.available = available;
-        }
-
-        @Override
-        public String toString() {
-            return "CarEntity{" +
-                    "id=" + id +
-                    ", brand='" + brand + '\'' +
-                    ", model='" + model + '\'' +
-                    ", yearOfProduction=" + yearOfProduction +
-                    ", type=" + type +
-                    ", image='" + image + '\'' +
-                    ", available=" + available +
-                    '}';
         }
 
         @Override
