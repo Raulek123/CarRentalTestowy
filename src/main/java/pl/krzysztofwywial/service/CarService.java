@@ -32,14 +32,8 @@ public class CarService {
     }
 
     public CarEntity getCarById(Long id) throws RecordNotFoundException {
-        Optional<CarEntity> car = Optional.empty();
+        Optional<CarEntity> car = repository.findById(id);
 
-        for (CarEntity entity : repository.findAll()) {
-            if (entity.getId() == id) {
-                car = Optional.of(entity);
-                break;
-            }
-        }
         if (car.isPresent()) {
             return car.get();
         } else {
@@ -47,28 +41,8 @@ public class CarService {
         }
     }
 
-    public CarEntity createOrUpdateCar(CarEntity entity) {
-        if (entity.getId() == null) {
-            entity = repository.save(entity);
-            return entity;
-        } else {
-            Optional<CarEntity> car = repository.findById(entity.getId());
-
-            if (car.isPresent()) {
-                CarEntity newEntity = car.get();
-                newEntity.setBrand(entity.getBrand());
-                newEntity.setModel(entity.getModel());
-                newEntity.setYearOfProduction(entity.getYearOfProduction());
-                newEntity.setType(entity.getType());
-                newEntity.setAvailable(entity.isAvailable());
-
-                newEntity = repository.save(newEntity);
-                return newEntity;
-            } else {
-                entity = repository.save(entity);
-                return entity;
-            }
-        }
+    public void createOrUpdateCar(CarEntity entity) {
+        repository.save(entity);
     }
 
     public void deleteCarById(Long id) throws RecordNotFoundException {
@@ -96,12 +70,12 @@ public class CarService {
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
         }
-            try (InputStream inputStream = multipartFile.getInputStream()) {
-                Path filePath = uploadPath.resolve(fileName);
-                Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                throw new IOException("Could not save file: " + fileName, e);
-            }
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new IOException("Could not save file: " + fileName, e);
         }
     }
+}
 

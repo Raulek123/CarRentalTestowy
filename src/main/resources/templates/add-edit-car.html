@@ -38,7 +38,7 @@
                             <label class="col-form-label">Rodzaj nadwozia</label>
                             <select name="type" id="type" class="form-control">
                                 <option th:each="type : ${T(pl.krzysztofwywial.enums.CarType).values()}"
-                                        th:value="${type}" th:text="${type}">
+                                        th:value="${type}" th:text="${type.description}">
                                 </option>
                             </select>
                         </div>
@@ -53,7 +53,6 @@
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" value="Zapisz">
                         </div>
-
                         <input type="hidden" id="id" th:field="*{id}">
                     </div>
                 </form>

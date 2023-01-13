@@ -12,7 +12,6 @@ import pl.krzysztofwywial.exception.RecordNotFoundException;
 import pl.krzysztofwywial.model.CarEntity;
 import pl.krzysztofwywial.service.CarService;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 

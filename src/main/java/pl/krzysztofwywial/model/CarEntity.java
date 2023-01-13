@@ -1,6 +1,5 @@
 package pl.krzysztofwywial.model;
 
-
 import pl.krzysztofwywial.enums.CarType;
 
 import javax.persistence.*;
