@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <changeSet id="0001-1" author="krzysztofwywial">
+        <validCheckSum>8:7a93ae092825093f5a504bf44b744468</validCheckSum>
+        <createTable tableName="cars">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="brand" type="VARCHAR(255)"/>
+            <column name="model" type="VARCHAR(255)"/>
+            <column name="year_of_production" type="INT"/>
+            <column name="type" type="INT"/>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="available" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

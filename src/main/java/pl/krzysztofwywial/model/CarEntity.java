@@ -4,8 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import pl.krzysztofwywial.enums.CarType;
+import pl.krzysztofwywial.service.CarService;
 
 import javax.persistence.*;
+
 
 @Entity
 @Getter
@@ -13,6 +15,7 @@ import javax.persistence.*;
 @ToString
     @Table(name = "CARS")
     public class CarEntity implements Comparable<CarEntity> {
+
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
@@ -34,14 +37,6 @@ import javax.persistence.*;
 
         @Column(name = "available")
         private boolean available;
-
-
-        public String getImagePath() {
-            if (image == null || id == null) {
-                return null;
-            }
-                return "/images/" + id + "/" + image;
-        }
 
         @Override
         public int compareTo(CarEntity c) {

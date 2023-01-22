@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pl.krzysztofwywial.exception.RecordNotFoundException;
 import pl.krzysztofwywial.model.CarEntity;
 import pl.krzysztofwywial.service.CarService;
@@ -23,10 +25,14 @@ public class CarMvcController {
     CarService service;
 
 
+    private static Logger log = LogManager.getLogger(CarMvcController.class);
+
+
     @RequestMapping
     public String getAllCars(Model model) {
         List<CarEntity> list = service.getAllCars();
         model.addAttribute("cars", list);
+        model.addAttribute("imagePath", service.getImagePath());
         return "cars-list";
     }
 
@@ -62,7 +68,7 @@ public class CarMvcController {
         try {
             service.saveImage(car, multipartFile);
         }catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error save photo", e);
         }
         return "redirect:/";
     }

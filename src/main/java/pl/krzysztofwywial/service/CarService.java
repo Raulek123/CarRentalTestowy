@@ -1,13 +1,17 @@
 package pl.krzysztofwywial.service;
 
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import pl.krzysztofwywial.config.ImageConfig;
 import pl.krzysztofwywial.exception.RecordNotFoundException;
 import pl.krzysztofwywial.model.CarEntity;
 import pl.krzysztofwywial.repository.CarRepository;
+
+
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,12 +22,15 @@ import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 public class CarService {
 
     @Autowired
     private CarRepository repository;
 
+    @Autowired
+    private ImageConfig imagePath;
 
     public List<CarEntity> getAllCars() {
         List<CarEntity> result = (List<CarEntity>) repository.findAll();
@@ -61,7 +68,7 @@ public class CarService {
         car.setImage(fileName);
 
         CarEntity carSaved = repository.save(car);
-        String uploadDiectory = "images/" + carSaved.getId();
+        String uploadDiectory = imagePath.getImage() + carSaved.getId();
         saveFile(uploadDiectory, fileName, multipartFile);
     }
 
@@ -76,6 +83,14 @@ public class CarService {
         } catch (IOException e) {
             throw new IOException("Could not save file: " + fileName, e);
         }
+    }
+
+    private final CarEntity carEntity = new CarEntity();
+    public String getImagePath() {
+        if (carEntity.getImage() == null || carEntity.getId() == null) {
+            return null;
+        }
+        return "/images/" + carEntity.getId() + "/" + carEntity.getImage();
     }
 }
 

@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                             <tr th:each="car : ${cars}">
-                                <td><img th:src="@{${car.imagePath}}" th:width="200px" th:alt="${car.image}"/>
+                                <td><img th:src="@{${imagePath}}" th:width="200px" th:alt="${car.image}"/>
                                 </td>
                                 <td th:text="${car.brand}"></td>
                                 <td th:text="${car.model}"></td>
