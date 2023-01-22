@@ -29,6 +29,7 @@ public class CarService {
     @Autowired
     private CarRepository repository;
 
+
     @Autowired
     private ImageConfig imagePath;
 
@@ -90,7 +91,7 @@ public class CarService {
         if (carEntity.getImage() == null || carEntity.getId() == null) {
             return null;
         }
-        return "/images/" + carEntity.getId() + "/" + carEntity.getImage();
+        return imagePath.getImage() + carEntity.getId() + "/" + carEntity.getImage();
     }
 }
 
